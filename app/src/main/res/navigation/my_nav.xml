@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/listUserFragment">
+
+    <fragment
+        android:id="@+id/addUserFragment"
+        android:name="nullexia.m3md69.theroom.submit.SubmitUserFragment"
+        android:label="Submit"
+        tools:layout="@layout/fragment_submit_user">
+        <action
+            android:id="@+id/action_addUserFragment_to_listUserFragment"
+            app:destination="@id/listUserFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listUserFragment"
+        android:name="nullexia.m3md69.theroom.list.ListUserFragment"
+        android:label="List"
+        tools:layout="@layout/fragment_list_user">
+        <action
+            android:id="@+id/action_listUserFragment_to_addUserFragment"
+            app:destination="@id/addUserFragment" />
+    </fragment>
+</navigation>

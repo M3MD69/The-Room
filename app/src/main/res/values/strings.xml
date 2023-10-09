@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">The Room</string>
+    <string name="age">Age</string>
+    <string name="full_name">Full Name</string>
+    <string name="job">Job</string>
+    <string name="submit">Submit</string>
+    <string name="update">Update</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="search">Search…</string>
+</resources>

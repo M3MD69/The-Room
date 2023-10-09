@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Base.Theme.TheRoom" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+    <style name="Theme.TheRoom" parent="Base.Theme.TheRoom" />
+
+</resources>
