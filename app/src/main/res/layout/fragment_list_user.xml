@@ -4,29 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
+    android:fillViewport="true"
     tools:context=".list.ListUserFragment">
 
     <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical"
+        android:padding="5dp">
 
-        <com.google.android.material.search.SearchBar
-            android:id="@+id/justSearchUser"
+        <EditText
+            android:id="@+id/justSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_purple"
-            android:hint="@string/search" />
+            android:background="@drawable/input_shape"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:drawablePadding="5dp"
+            android:drawableTint="@color/primary_color"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch"
+            android:padding="12.5dp"
+            android:singleLine="true"
+            android:textColor="@color/primary_color" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/justMyUsers"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="1dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/list_user" />
     </LinearLayout>
@@ -35,10 +46,30 @@
         android:id="@+id/justDeleteAllUsersBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/justRestoreUsersBtn"
+        android:layout_margin="5dp"
+        android:layout_toStartOf="@id/justBackupUsersBtn"
+        android:src="@drawable/baseline_delete_24"
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/justRestoreUsersBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/justCloseMenuBtn"
+        android:layout_margin="5dp"
+        android:layout_toStartOf="@+id/justAddUserBtn"
+        android:src="@drawable/baseline_restore_24"
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/justBackupUsersBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@id/justAddUserBtn"
         android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
-        android:src="@drawable/baseline_delete_24"
+        android:layout_margin="5dp"
+        android:src="@drawable/baseline_backup_24"
         android:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/justCloseMenuBtn"
         android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:src="@drawable/baseline_add_24"
         android:visibility="gone" />
 
@@ -57,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:src="@drawable/baseline_close_24"
         android:visibility="gone" />
 
@@ -67,8 +98,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:src="@drawable/baseline_close_24"
-        android:text="Menu"
+        android:text="@string/menu"
         app:icon="@drawable/baseline_menu_24" />
+
 </RelativeLayout>

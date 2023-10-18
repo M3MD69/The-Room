@@ -12,8 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import nullexia.m3md69.theroom.R
 import nullexia.m3md69.theroom.databinding.FragmentSubmitUserBinding
-import nullexia.m3md69.theroom.room.UserViewModel
 import nullexia.m3md69.theroom.room.model.User
+import nullexia.m3md69.theroom.room.view_model.UserViewModel
 import nullexia.m3md69.theroom.utilities.Constants
 
 class SubmitUserFragment : Fragment() {

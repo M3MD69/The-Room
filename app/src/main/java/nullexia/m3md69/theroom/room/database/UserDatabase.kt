@@ -1,9 +1,10 @@
-package nullexia.m3md69.theroom.room
+package nullexia.m3md69.theroom.room.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import nullexia.m3md69.theroom.room.dao.UserDao
 import nullexia.m3md69.theroom.room.model.User
 import nullexia.m3md69.theroom.utilities.Constants
 

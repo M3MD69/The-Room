@@ -10,6 +10,8 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -17,10 +19,10 @@ import androidx.recyclerview.widget.RecyclerView
 import nullexia.m3md69.theroom.R
 import nullexia.m3md69.theroom.databinding.ListUserBinding
 import nullexia.m3md69.theroom.room.model.User
-import nullexia.m3md69.theroom.room.UserViewModel
+import nullexia.m3md69.theroom.room.view_model.UserViewModel
 import nullexia.m3md69.theroom.utilities.Constants
 
-class ListUserAdapter : RecyclerView.Adapter<ListUserAdapter.ListUserHolder> {
+class ListUserAdapter : RecyclerView.Adapter<ListUserAdapter.ListUserHolder>, Filterable {
 
     private lateinit var binding: ListUserBinding
 
@@ -28,10 +30,15 @@ class ListUserAdapter : RecyclerView.Adapter<ListUserAdapter.ListUserHolder> {
 
     private var mContext: Context
 
-    private var arrUser = emptyList<User>()
+    var arrUser = ArrayList<User>()
 
-    constructor(mContext: Context) {
+    private var filterList: ArrayList<User>
+    private var filter: ListUserFilter? = null
+
+    constructor(mContext: Context, arrUser: ArrayList<User>) {
         this.mContext = mContext
+        this.arrUser = arrUser
+        this.filterList = arrUser
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListUserHolder {
@@ -58,15 +65,19 @@ class ListUserAdapter : RecyclerView.Adapter<ListUserAdapter.ListUserHolder> {
             deleteUser(userModel, position)
             true
         }
-
     }
 
     override fun getItemCount(): Int = arrUser.size
 
-    fun setData(user: List<User>) {
-        this.arrUser = user
-        notifyDataSetChanged()
+    override fun getFilter(): Filter {
+        if (filter == null) filter = ListUserFilter(this, filterList)
+        return filter as ListUserFilter
     }
+
+//    fun setData(user: List<User>) {
+//        this.arrUser = user as ArrayList<User>
+//        notifyDataSetChanged()
+//    }
 
     private fun deleteUser(userModel: User, position: Int) {
         mUserViewModel = ViewModelProvider(mContext as AppCompatActivity)[UserViewModel::class.java]

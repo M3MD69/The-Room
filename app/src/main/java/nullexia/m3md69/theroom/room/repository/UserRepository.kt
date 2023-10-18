@@ -1,6 +1,7 @@
-package nullexia.m3md69.theroom.room
+package nullexia.m3md69.theroom.room.repository
 
 import androidx.lifecycle.LiveData
+import nullexia.m3md69.theroom.room.dao.UserDao
 import nullexia.m3md69.theroom.room.model.User
 
 class UserRepository(private val userDao: UserDao) {

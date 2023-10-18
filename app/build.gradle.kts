@@ -62,7 +62,7 @@ dependencies {
     // For Inject
     val daggerVersion = "2.38.1"
     implementation("com.google.dagger:dagger:$daggerVersion")
-    ksp("com.google.dagger:dagger-compiler:2.x")
+    ksp("com.google.dagger:dagger-compiler:$daggerVersion")
     implementation("com.google.dagger:hilt-android:$daggerVersion")
     ksp("com.google.dagger:hilt-android-compiler:$daggerVersion")
 

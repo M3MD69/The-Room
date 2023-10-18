@@ -1,4 +1,4 @@
-package nullexia.m3md69.theroom.room
+package nullexia.m3md69.theroom.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

@@ -1,4 +1,4 @@
-package nullexia.m3md69.theroom.room
+package nullexia.m3md69.theroom.room.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import nullexia.m3md69.theroom.room.database.UserDatabase
 import nullexia.m3md69.theroom.room.model.User
+import nullexia.m3md69.theroom.room.repository.UserRepository
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<User>>
